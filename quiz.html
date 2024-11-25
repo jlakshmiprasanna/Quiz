@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Selection</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: white;
+            background-image: url(https://static.vecteezy.com/system/resources/previews/001/310/865/large_2x/question-mark-on-dark-blue-background-free-vector.jpg);
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 1s ease-in-out;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #b7c2d6;
+            color: #2c3e50;
+            width: 200px;
+            height: 100px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            animation: bounceIn 0.8s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 20px rgba(158, 127, 127, 0.3);
+            color: black;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1200px) {
+            .card-container {
+                gap: 15px;
+            }
+
+            .card {
+                width: 180px;
+                height: 90px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .card-container {
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 250px;
+                height: 120px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .card-container {
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 200px;
+                height: 100px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Select a Language for the Quiz</h2>
+    <div class="card-container">
+        <div class="card" onclick="startQuiz('HTML')">
+            <h3>HTML</h3>
+        </div>
+        <div class="card" onclick="startQuiz('CSS')">
+            <h3>CSS</h3>
+        </div>
+        <div class="card" onclick="startQuiz('JavaScript')">
+            <h3>JavaScript</h3>
+        </div>
+    </div>
+    <script>
+        function startQuiz(language) {
+            localStorage.setItem('selectedLanguage', language);
+            window.location.href = 'quiz_questions.html';
+        }
+    </script>
+</body>
+
+</html>
